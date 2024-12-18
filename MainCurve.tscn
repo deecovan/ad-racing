@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgj0m8hmjb48r"]
+
+[ext_resource type="PackedScene" uid="uid://dsokgsfl8y6fi" path="res://Track.tscn" id="1_0764m"]
+[ext_resource type="Script" path="res://MainCurve.gd" id="1_sdhva"]
+[ext_resource type="PackedScene" uid="uid://c0mc0r6m88auy" path="res://PlayerA.tscn" id="3_2muk4"]
+
+[node name="MainCurve" type="Node2D"]
+script = ExtResource("1_sdhva")
+
+[node name="Track" parent="." instance=ExtResource("1_0764m")]
+position = Vector2(64, 64)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 190)
+zoom = Vector2(2, 2)
+
+[node name="Player1" parent="." groups=["Players"] instance=ExtResource("3_2muk4")]
+scale = Vector2(0.5, 0.5)
+longitude_acc_limit = 8.0
+
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(640, 380.34)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
